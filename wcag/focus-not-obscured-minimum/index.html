@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WCAG 2.4.11 Focus Not Obscured (Minimum): what it means for an online store | Annex</title>
+<meta name="description" content="When a control receives keyboard focus, it must not be completely hidden behind other content such as a sticky header or a cookie banner.">
+<link rel="canonical" href="https://yakupefecaliskann.github.io/annex-site/wcag/focus-not-obscured-minimum/">
+<meta property="og:title" content="WCAG 2.4.11 Focus Not Obscured (Minimum): what it means for an online store | Annex">
+<meta property="og:description" content="When a control receives keyboard focus, it must not be completely hidden behind other content such as a sticky header or a cookie banner.">
+<meta property="og:url" content="https://yakupefecaliskann.github.io/annex-site/wcag/focus-not-obscured-minimum/">
+<meta property="og:type" content="article">
+<style>:root{--bg:#fbfaf8;--fg:#1a1a1a;--muted:#5a5a5a;--line:#e2ded8;--accent:#7a2e2e;--card:#fff;--warn-bg:#fdf6e3;--warn-line:#d9c89a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28}}
+:root[data-theme="dark"]{--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#fff;padding:.6rem 1rem;z-index:10}
+.skip:focus{left:0}
+.wrap{max-width:52rem;margin:0 auto;padding:0 1.25rem}
+header.site{border-bottom:1px solid var(--line);padding:1rem 0}
+header.site .wrap{display:flex;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;font-size:1.1rem;color:var(--fg);text-decoration:none;letter-spacing:-.01em}
+nav.site a{color:var(--muted);text-decoration:none;margin-right:1rem;font-size:.9rem}
+nav.site a:hover,nav.site a:focus{color:var(--accent);text-decoration:underline}
+main{padding:2.5rem 0 4rem}
+h1{font-size:1.9rem;line-height:1.2;margin:0 0 .5rem;letter-spacing:-.02em}
+h2{font-size:1.25rem;line-height:1.3;margin:2.25rem 0 .6rem}
+h3{font-size:1.02rem;margin:1.5rem 0 .4rem}
+p{margin:0 0 1rem}
+a{color:var(--accent)}
+.lede{font-size:1.08rem;color:var(--muted);margin-bottom:1.5rem}
+.meta{font-size:.82rem;color:var(--muted);margin:0 0 1.5rem;padding:0;list-style:none;display:flex;gap:.75rem;flex-wrap:wrap}
+.meta li{border:1px solid var(--line);border-radius:999px;padding:.15rem .7rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.25rem;margin:0 0 1rem}
+.card h3{margin-top:0}
+.card p:last-child{margin-bottom:0}
+.why{font-size:.9rem;color:var(--muted)}
+.note{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:10px;padding:1rem 1.25rem;font-size:.92rem;margin:2rem 0}
+.note p:last-child{margin-bottom:0}
+ol.steps{padding-left:1.2rem}
+ol.steps li{margin-bottom:.5rem}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{border-bottom:1px solid var(--line);padding:.85rem 0}
+ul.plain li:last-child{border-bottom:0}
+ul.plain a{font-weight:600;text-decoration:none}
+ul.plain a:hover,ul.plain a:focus{text-decoration:underline}
+ul.plain .sub{display:block;font-size:.88rem;color:var(--muted);margin-top:.15rem}
+code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.08em .35em;font-size:.9em}
+footer.site{border-top:1px solid var(--line);padding:1.5rem 0 2.5rem;font-size:.85rem;color:var(--muted)}
+footer.site a{color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:34rem){h1{font-size:1.55rem}}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/annex-site/">Annex</a>
+    <nav class="site" aria-label="Main navigation">
+      <a href="/annex-site/wcag/">WCAG criteria</a>
+      <a href="/annex-site/#how-it-works">How Annex works</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <h1>WCAG 2.4.11 — Focus Not Obscured (Minimum)</h1>
+    <p class="lede">When a control receives keyboard focus, it must not be completely hidden behind other content such as a sticky header or a cookie banner.</p>
+    <ul class="meta">
+      <li>Level AA</li>
+      <li>WCAG 2.2</li>
+      <li>Manual check required</li>
+    </ul>
+
+    <h2>What this means for a store</h2>
+    <p>New in WCAG 2.2, so almost no site audited before 2023 has been checked against it — and almost every modern storefront has the pattern that breaks it. A sticky header plus a sticky Add to Cart bar plus a cookie banner means a keyboard user tabbing down the page repeatedly loses sight of where they are: the browser scrolls the focused element just into view, and the sticky header covers it. The customer is still technically on the control, but has no way to know.</p>
+
+    <h2>The failures we see most often</h2>
+      <div class="card">
+        <h3>A sticky header covers the focused element after the browser scrolls it into view.</h3>
+        <p class="why">Why it happens: The browser scrolls the element to the top of the viewport; the fixed header occupies exactly that space. Nothing tells the browser to leave room.</p>
+      </div>
+      <div class="card">
+        <h3>A cookie consent banner fixed to the bottom hides focused controls in the footer.</h3>
+        <p class="why">Why it happens: Consent banners are injected by a third-party script and are not part of the layout the theme reasons about.</p>
+      </div>
+      <div class="card">
+        <h3>A sticky Add to Cart or promo bar covers form fields further down the page.</h3>
+        <p class="why">Why it happens: Conversion-oriented sticky bars are added late, usually by an app, and are never keyboard-tested.</p>
+      </div>
+      <div class="card">
+        <h3>A live chat widget overlaps focused controls in the lower corner.</h3>
+        <p class="why">Why it happens: Chat widgets sit at a high z-index in a fixed corner and are sized independently of the page.</p>
+      </div>
+
+    <h2>How to check it yourself</h2>
+      <ol class="steps">
+        <li>Tab slowly down a long page — a checkout or a product page with a long description — and watch whether the focused control ever disappears under the header.</li>
+        <li>Repeat with the cookie banner still showing, before it is dismissed. This is the state most first-time visitors are in.</li>
+        <li>Repeat with the chat widget open.</li>
+        <li>Test at a short viewport height, such as a laptop screen with the browser not maximised, where sticky elements take a larger share of the screen.</li>
+      </ol>
+
+    <h2>Fixing it, by platform</h2>
+      <ul class="plain">
+        <li><a href="/annex-site/shopify/focus-not-obscured-minimum/">Shopify — Focus Not Obscured (Minimum)</a>
+          <span class="sub">Theme code: the sticky header component and any sticky Add to Cart section; consent banner and chat apps configured outside the theme.</span></li>
+        <li><a href="/annex-site/woocommerce/focus-not-obscured-minimum/">WooCommerce — Focus Not Obscured (Minimum)</a>
+          <span class="sub">Theme sticky header styles; consent plugin; sticky add-to-cart plugin.</span></li>
+        <li><a href="/annex-site/webflow/focus-not-obscured-minimum/">Webflow — Focus Not Obscured (Minimum)</a>
+          <span class="sub">Designer: the fixed navbar component; custom code for scroll-margin.</span></li>
+        <li><a href="/annex-site/wix/focus-not-obscured-minimum/">Wix — Focus Not Obscured (Minimum)</a>
+          <span class="sub">Frozen or sticky header settings; third-party app widgets.</span></li>
+        <li><a href="/annex-site/squarespace/focus-not-obscured-minimum/">Squarespace — Focus Not Obscured (Minimum)</a>
+          <span class="sub">Fixed header settings in Site Styles; promotional pop-up; custom CSS.</span></li>
+      </ul>
+
+    <div class="note">
+      <h2 id="what-this-page-covers">What this page covers</h2>
+      <p>What follows is the practical meaning of a WCAG 2.2 success criterion. Automated tests catch
+      only a portion of accessibility issues, so a clean scan result does not
+      mean compliance. Platform paths vary by version and theme.</p>
+    </div>
+
+    <h2>Source</h2>
+    <p>The formal definition of this criterion: <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html">W3C — Understanding Focus Not Obscured (Minimum)</a></p>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Annex — EAA accessibility evidence for agencies. These pages are informational and are not legal advice.</p>
+  </div>
+</footer>
+</body>
+</html>
