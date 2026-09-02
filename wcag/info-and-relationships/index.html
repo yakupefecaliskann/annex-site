@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WCAG 1.3.1 Info and Relationships: what it means for an online store | Annex</title>
+<meta name="description" content="Structure you can see — headings, lists, tables, form labels — must exist in the markup too, not be simulated with font size and colour alone.">
+<link rel="canonical" href="https://yakupefecaliskann.github.io/annex-site/wcag/info-and-relationships/">
+<meta property="og:title" content="WCAG 1.3.1 Info and Relationships: what it means for an online store | Annex">
+<meta property="og:description" content="Structure you can see — headings, lists, tables, form labels — must exist in the markup too, not be simulated with font size and colour alone.">
+<meta property="og:url" content="https://yakupefecaliskann.github.io/annex-site/wcag/info-and-relationships/">
+<meta property="og:type" content="article">
+<style>:root{--bg:#fbfaf8;--fg:#1a1a1a;--muted:#5a5a5a;--line:#e2ded8;--accent:#7a2e2e;--card:#fff;--warn-bg:#fdf6e3;--warn-line:#d9c89a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28}}
+:root[data-theme="dark"]{--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#fff;padding:.6rem 1rem;z-index:10}
+.skip:focus{left:0}
+.wrap{max-width:52rem;margin:0 auto;padding:0 1.25rem}
+header.site{border-bottom:1px solid var(--line);padding:1rem 0}
+header.site .wrap{display:flex;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;font-size:1.1rem;color:var(--fg);text-decoration:none;letter-spacing:-.01em}
+nav.site a{color:var(--muted);text-decoration:none;margin-right:1rem;font-size:.9rem}
+nav.site a:hover,nav.site a:focus{color:var(--accent);text-decoration:underline}
+main{padding:2.5rem 0 4rem}
+h1{font-size:1.9rem;line-height:1.2;margin:0 0 .5rem;letter-spacing:-.02em}
+h2{font-size:1.25rem;line-height:1.3;margin:2.25rem 0 .6rem}
+h3{font-size:1.02rem;margin:1.5rem 0 .4rem}
+p{margin:0 0 1rem}
+a{color:var(--accent)}
+.lede{font-size:1.08rem;color:var(--muted);margin-bottom:1.5rem}
+.meta{font-size:.82rem;color:var(--muted);margin:0 0 1.5rem;padding:0;list-style:none;display:flex;gap:.75rem;flex-wrap:wrap}
+.meta li{border:1px solid var(--line);border-radius:999px;padding:.15rem .7rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.25rem;margin:0 0 1rem}
+.card h3{margin-top:0}
+.card p:last-child{margin-bottom:0}
+.why{font-size:.9rem;color:var(--muted)}
+.note{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:10px;padding:1rem 1.25rem;font-size:.92rem;margin:2rem 0}
+.note p:last-child{margin-bottom:0}
+ol.steps{padding-left:1.2rem}
+ol.steps li{margin-bottom:.5rem}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{border-bottom:1px solid var(--line);padding:.85rem 0}
+ul.plain li:last-child{border-bottom:0}
+ul.plain a{font-weight:600;text-decoration:none}
+ul.plain a:hover,ul.plain a:focus{text-decoration:underline}
+ul.plain .sub{display:block;font-size:.88rem;color:var(--muted);margin-top:.15rem}
+code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.08em .35em;font-size:.9em}
+footer.site{border-top:1px solid var(--line);padding:1.5rem 0 2.5rem;font-size:.85rem;color:var(--muted)}
+footer.site a{color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:34rem){h1{font-size:1.55rem}}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/annex-site/">Annex</a>
+    <nav class="site" aria-label="Main navigation">
+      <a href="/annex-site/wcag/">WCAG criteria</a>
+      <a href="/annex-site/#how-it-works">How Annex works</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <h1>WCAG 1.3.1 — Info and Relationships</h1>
+    <p class="lede">Structure you can see — headings, lists, tables, form labels — must exist in the markup too, not be simulated with font size and colour alone.</p>
+    <ul class="meta">
+      <li>Level A</li>
+      <li>WCAG 2.0</li>
+      <li>Automatically detectable</li>
+    </ul>
+
+    <h2>What this means for a store</h2>
+    <p>The expensive version of this failure is in the checkout form. A field whose label is not programmatically associated leaves a screen reader user guessing what to type, and they abandon at the payment step. That is a lost order, at the point in the funnel where the customer was most committed.</p>
+
+    <h2>The failures we see most often</h2>
+      <div class="card">
+        <h3>A visible label sits next to a field but is not connected to it with label/for.</h3>
+        <p class="why">Why it happens: The label is placed as a separate text element. It looks correct and is functionally disconnected.</p>
+      </div>
+      <div class="card">
+        <h3>Headings created by increasing font size instead of using h1 to h6.</h3>
+        <p class="why">Why it happens: In page builders, making text bigger is easier than choosing a heading element.</p>
+      </div>
+      <div class="card">
+        <h3>Heading levels skipped, for example h1 straight to h4.</h3>
+        <p class="why">Why it happens: The heading element is chosen for the style it carries rather than for its place in the document outline.</p>
+      </div>
+      <div class="card">
+        <h3>A product specification table built from aligned divs instead of a real table.</h3>
+        <p class="why">Why it happens: CSS grid makes a visual table easy. The row and column relationships never reach assistive technology.</p>
+      </div>
+
+    <h2>How to check it yourself</h2>
+      <ol class="steps">
+        <li>Click each form label. If the cursor jumps into the associated field, the association exists.</li>
+        <li>List the page's headings in a browser accessibility inspector and check the order is sequential.</li>
+        <li>Disable CSS and confirm the page still reads as a sensible document.</li>
+      </ol>
+
+    <h2>Fixing it, by platform</h2>
+      <ul class="plain">
+        <li><a href="/annex-site/shopify/info-and-relationships/">Shopify — Info and Relationships</a>
+          <span class="sub">Theme code: contact, account and search forms, and product templates.</span></li>
+        <li><a href="/annex-site/woocommerce/info-and-relationships/">WooCommerce — Info and Relationships</a>
+          <span class="sub">Theme and child-theme form templates; page builder blocks.</span></li>
+        <li><a href="/annex-site/webflow/info-and-relationships/">Webflow — Info and Relationships</a>
+          <span class="sub">Designer, the HTML Tag setting on a text element; Field Settings on form inputs.</span></li>
+        <li><a href="/annex-site/wix/info-and-relationships/">Wix — Info and Relationships</a>
+          <span class="sub">Editor, the paragraph and heading style selector on a text block.</span></li>
+        <li><a href="/annex-site/squarespace/info-and-relationships/">Squarespace — Info and Relationships</a>
+          <span class="sub">Text block format selector (Heading 1/2/3, Paragraph).</span></li>
+      </ul>
+
+    <div class="note">
+      <h2 id="what-this-page-covers">What this page covers</h2>
+      <p>What follows is the practical meaning of a WCAG 2.2 success criterion. Automated tests catch
+      only a portion of accessibility issues, so a clean scan result does not
+      mean compliance. Platform paths vary by version and theme.</p>
+    </div>
+
+    <h2>Source</h2>
+    <p>The formal definition of this criterion: <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">W3C — Understanding Info and Relationships</a></p>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Annex — EAA accessibility evidence for agencies. These pages are informational and are not legal advice.</p>
+  </div>
+</footer>
+</body>
+</html>

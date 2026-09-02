@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WCAG 2.4.2 Page Titled: what it means for an online store | Annex</title>
+<meta name="description" content="Every page needs a unique title element that describes what the page is about.">
+<link rel="canonical" href="https://yakupefecaliskann.github.io/annex-site/wcag/page-titled/">
+<meta property="og:title" content="WCAG 2.4.2 Page Titled: what it means for an online store | Annex">
+<meta property="og:description" content="Every page needs a unique title element that describes what the page is about.">
+<meta property="og:url" content="https://yakupefecaliskann.github.io/annex-site/wcag/page-titled/">
+<meta property="og:type" content="article">
+<style>:root{--bg:#fbfaf8;--fg:#1a1a1a;--muted:#5a5a5a;--line:#e2ded8;--accent:#7a2e2e;--card:#fff;--warn-bg:#fdf6e3;--warn-line:#d9c89a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28}}
+:root[data-theme="dark"]{--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#fff;padding:.6rem 1rem;z-index:10}
+.skip:focus{left:0}
+.wrap{max-width:52rem;margin:0 auto;padding:0 1.25rem}
+header.site{border-bottom:1px solid var(--line);padding:1rem 0}
+header.site .wrap{display:flex;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;font-size:1.1rem;color:var(--fg);text-decoration:none;letter-spacing:-.01em}
+nav.site a{color:var(--muted);text-decoration:none;margin-right:1rem;font-size:.9rem}
+nav.site a:hover,nav.site a:focus{color:var(--accent);text-decoration:underline}
+main{padding:2.5rem 0 4rem}
+h1{font-size:1.9rem;line-height:1.2;margin:0 0 .5rem;letter-spacing:-.02em}
+h2{font-size:1.25rem;line-height:1.3;margin:2.25rem 0 .6rem}
+h3{font-size:1.02rem;margin:1.5rem 0 .4rem}
+p{margin:0 0 1rem}
+a{color:var(--accent)}
+.lede{font-size:1.08rem;color:var(--muted);margin-bottom:1.5rem}
+.meta{font-size:.82rem;color:var(--muted);margin:0 0 1.5rem;padding:0;list-style:none;display:flex;gap:.75rem;flex-wrap:wrap}
+.meta li{border:1px solid var(--line);border-radius:999px;padding:.15rem .7rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.25rem;margin:0 0 1rem}
+.card h3{margin-top:0}
+.card p:last-child{margin-bottom:0}
+.why{font-size:.9rem;color:var(--muted)}
+.note{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:10px;padding:1rem 1.25rem;font-size:.92rem;margin:2rem 0}
+.note p:last-child{margin-bottom:0}
+ol.steps{padding-left:1.2rem}
+ol.steps li{margin-bottom:.5rem}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{border-bottom:1px solid var(--line);padding:.85rem 0}
+ul.plain li:last-child{border-bottom:0}
+ul.plain a{font-weight:600;text-decoration:none}
+ul.plain a:hover,ul.plain a:focus{text-decoration:underline}
+ul.plain .sub{display:block;font-size:.88rem;color:var(--muted);margin-top:.15rem}
+code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.08em .35em;font-size:.9em}
+footer.site{border-top:1px solid var(--line);padding:1.5rem 0 2.5rem;font-size:.85rem;color:var(--muted)}
+footer.site a{color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:34rem){h1{font-size:1.55rem}}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/annex-site/">Annex</a>
+    <nav class="site" aria-label="Main navigation">
+      <a href="/annex-site/wcag/">WCAG criteria</a>
+      <a href="/annex-site/#how-it-works">How Annex works</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <h1>WCAG 2.4.2 — Page Titled</h1>
+    <p class="lede">Every page needs a unique title element that describes what the page is about.</p>
+    <ul class="meta">
+      <li>Level A</li>
+      <li>WCAG 2.0</li>
+      <li>Automatically detectable</li>
+    </ul>
+
+    <h2>What this means for a store</h2>
+    <p>The title is the first thing a screen reader announces when a user moves between tabs. If all 200 products in the catalogue carry the title 'Shop', the customer cannot tell which product they are on. It is also the line that appears in search results, so the fix improves click-through at the same time.</p>
+
+    <h2>The failures we see most often</h2>
+      <div class="card">
+        <h3>The same title on every page (the store name, or 'Home').</h3>
+        <p class="why">Why it happens: The theme prints a fixed title, or the SEO plugin was configured for the homepage only.</p>
+      </div>
+      <div class="card">
+        <h3>An empty or placeholder title such as 'Untitled'.</h3>
+        <p class="why">Why it happens: Custom templates added through a page builder are published before the title field is filled.</p>
+      </div>
+      <div class="card">
+        <h3>Keyword-stuffed titles ('Shoes Sports Shoes Cheap Shoes Online Shoes').</h3>
+        <p class="why">Why it happens: An old SEO habit. A screen reader reads the whole string, and the page becomes harder to identify, not easier.</p>
+      </div>
+      <div class="card">
+        <h3>Paginated listings where the page number never reaches the title, so five pages share one title.</h3>
+        <p class="why">Why it happens: The pagination template does not touch the title.</p>
+      </div>
+
+    <h2>How to check it yourself</h2>
+      <ol class="steps">
+        <li>Open several product pages in separate tabs and see whether the tab titles let you tell them apart.</li>
+        <li>Go to page 2 of a category listing — does the title change?</li>
+        <li>Check the cart, checkout, account and 404 pages individually. These are the ones usually forgotten.</li>
+      </ol>
+
+    <h2>Fixing it, by platform</h2>
+      <ul class="plain">
+        <li><a href="/annex-site/shopify/page-titled/">Shopify — Page Titled</a>
+          <span class="sub">Theme code, the title element in the main layout file; per-product and per-collection SEO fields in Admin.</span></li>
+        <li><a href="/annex-site/woocommerce/page-titled/">WooCommerce — Page Titled</a>
+          <span class="sub">SEO plugin title templates (Yoast, Rank Math); the theme's wp_head() call.</span></li>
+        <li><a href="/annex-site/webflow/page-titled/">Webflow — Page Titled</a>
+          <span class="sub">Page settings, SEO Settings, Title Tag; field binding in CMS collection templates.</span></li>
+        <li><a href="/annex-site/wix/page-titled/">Wix — Page Titled</a>
+          <span class="sub">The SEO panel's page title field.</span></li>
+        <li><a href="/annex-site/squarespace/page-titled/">Squarespace — Page Titled</a>
+          <span class="sub">Page Settings, SEO, SEO Title.</span></li>
+      </ul>
+
+    <div class="note">
+      <h2 id="what-this-page-covers">What this page covers</h2>
+      <p>What follows is the practical meaning of a WCAG 2.2 success criterion. Automated tests catch
+      only a portion of accessibility issues, so a clean scan result does not
+      mean compliance. Platform paths vary by version and theme.</p>
+    </div>
+
+    <h2>Source</h2>
+    <p>The formal definition of this criterion: <a href="https://www.w3.org/WAI/WCAG22/Understanding/page-titled.html">W3C — Understanding Page Titled</a></p>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Annex — EAA accessibility evidence for agencies. These pages are informational and are not legal advice.</p>
+  </div>
+</footer>
+</body>
+</html>

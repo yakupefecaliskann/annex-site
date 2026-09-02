@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WCAG 2.4.4 Link Purpose (In Context): what it means for an online store | Annex</title>
+<meta name="description" content="Where a link goes should be clear from its text, or from the immediate context around it.">
+<link rel="canonical" href="https://yakupefecaliskann.github.io/annex-site/wcag/link-purpose-in-context/">
+<meta property="og:title" content="WCAG 2.4.4 Link Purpose (In Context): what it means for an online store | Annex">
+<meta property="og:description" content="Where a link goes should be clear from its text, or from the immediate context around it.">
+<meta property="og:url" content="https://yakupefecaliskann.github.io/annex-site/wcag/link-purpose-in-context/">
+<meta property="og:type" content="article">
+<style>:root{--bg:#fbfaf8;--fg:#1a1a1a;--muted:#5a5a5a;--line:#e2ded8;--accent:#7a2e2e;--card:#fff;--warn-bg:#fdf6e3;--warn-line:#d9c89a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28}}
+:root[data-theme="dark"]{--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#fff;padding:.6rem 1rem;z-index:10}
+.skip:focus{left:0}
+.wrap{max-width:52rem;margin:0 auto;padding:0 1.25rem}
+header.site{border-bottom:1px solid var(--line);padding:1rem 0}
+header.site .wrap{display:flex;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;font-size:1.1rem;color:var(--fg);text-decoration:none;letter-spacing:-.01em}
+nav.site a{color:var(--muted);text-decoration:none;margin-right:1rem;font-size:.9rem}
+nav.site a:hover,nav.site a:focus{color:var(--accent);text-decoration:underline}
+main{padding:2.5rem 0 4rem}
+h1{font-size:1.9rem;line-height:1.2;margin:0 0 .5rem;letter-spacing:-.02em}
+h2{font-size:1.25rem;line-height:1.3;margin:2.25rem 0 .6rem}
+h3{font-size:1.02rem;margin:1.5rem 0 .4rem}
+p{margin:0 0 1rem}
+a{color:var(--accent)}
+.lede{font-size:1.08rem;color:var(--muted);margin-bottom:1.5rem}
+.meta{font-size:.82rem;color:var(--muted);margin:0 0 1.5rem;padding:0;list-style:none;display:flex;gap:.75rem;flex-wrap:wrap}
+.meta li{border:1px solid var(--line);border-radius:999px;padding:.15rem .7rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.25rem;margin:0 0 1rem}
+.card h3{margin-top:0}
+.card p:last-child{margin-bottom:0}
+.why{font-size:.9rem;color:var(--muted)}
+.note{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:10px;padding:1rem 1.25rem;font-size:.92rem;margin:2rem 0}
+.note p:last-child{margin-bottom:0}
+ol.steps{padding-left:1.2rem}
+ol.steps li{margin-bottom:.5rem}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{border-bottom:1px solid var(--line);padding:.85rem 0}
+ul.plain li:last-child{border-bottom:0}
+ul.plain a{font-weight:600;text-decoration:none}
+ul.plain a:hover,ul.plain a:focus{text-decoration:underline}
+ul.plain .sub{display:block;font-size:.88rem;color:var(--muted);margin-top:.15rem}
+code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.08em .35em;font-size:.9em}
+footer.site{border-top:1px solid var(--line);padding:1.5rem 0 2.5rem;font-size:.85rem;color:var(--muted)}
+footer.site a{color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:34rem){h1{font-size:1.55rem}}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/annex-site/">Annex</a>
+    <nav class="site" aria-label="Main navigation">
+      <a href="/annex-site/wcag/">WCAG criteria</a>
+      <a href="/annex-site/#how-it-works">How Annex works</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <h1>WCAG 2.4.4 — Link Purpose (In Context)</h1>
+    <p class="lede">Where a link goes should be clear from its text, or from the immediate context around it.</p>
+    <ul class="meta">
+      <li>Level A</li>
+      <li>WCAG 2.0</li>
+      <li>Automatically detectable</li>
+    </ul>
+
+    <h2>What this means for a store</h2>
+    <p>Screen reader users often navigate by pulling up a list of every link on the page. If each product card links out with the word 'Details', that list is the same word twenty times over and the catalogue cannot be browsed. The same fix helps search engines understand what each link points at.</p>
+
+    <h2>The failures we see most often</h2>
+      <div class="card">
+        <h3>A product card links the image and the title separately to the same place, and the image link has no text.</h3>
+        <p class="why">Why it happens: The theme makes both clickable. A screen reader announces two links, one of which is unnamed.</p>
+      </div>
+      <div class="card">
+        <h3>Context-free link text: 'Click here', 'Read more', 'Learn more'.</h3>
+        <p class="why">Why it happens: Short button text looks better in the design, and the destination is never named.</p>
+      </div>
+      <div class="card">
+        <h3>Icon links (cart, account, wishlist) with no text.</h3>
+        <p class="why">Why it happens: The icon reads clearly to sighted users, so a label seems redundant.</p>
+      </div>
+      <div class="card">
+        <h3>Many links on one page sharing identical text but different destinations.</h3>
+        <p class="why">Why it happens: A list template prints the same fixed string for every card.</p>
+      </div>
+
+    <h2>How to check it yourself</h2>
+      <ol class="steps">
+        <li>Use a browser extension to list every link on the page. Read the texts alone — is each destination clear?</li>
+        <li>Tab through a product listing and check that at each stop you know where you would end up.</li>
+        <li>Look for links with the same text pointing to different places.</li>
+      </ol>
+
+    <h2>Fixing it, by platform</h2>
+      <ul class="plain">
+        <li><a href="/annex-site/shopify/link-purpose-in-context/">Shopify — Link Purpose (In Context)</a>
+          <span class="sub">Theme code: the product card snippet and product grid templates; header icon links.</span></li>
+        <li><a href="/annex-site/woocommerce/link-purpose-in-context/">WooCommerce — Link Purpose (In Context)</a>
+          <span class="sub">The theme's product loop template; page builder product grid widgets.</span></li>
+        <li><a href="/annex-site/webflow/link-purpose-in-context/">Webflow — Link Purpose (In Context)</a>
+          <span class="sub">Designer, the Link Block and Link element settings; collection list templates.</span></li>
+        <li><a href="/annex-site/wix/link-purpose-in-context/">Wix — Link Purpose (In Context)</a>
+          <span class="sub">Editor link settings; repeater elements.</span></li>
+        <li><a href="/annex-site/squarespace/link-purpose-in-context/">Squarespace — Link Purpose (In Context)</a>
+          <span class="sub">Product list settings; button blocks.</span></li>
+      </ul>
+
+    <div class="note">
+      <h2 id="what-this-page-covers">What this page covers</h2>
+      <p>What follows is the practical meaning of a WCAG 2.2 success criterion. Automated tests catch
+      only a portion of accessibility issues, so a clean scan result does not
+      mean compliance. Platform paths vary by version and theme.</p>
+    </div>
+
+    <h2>Source</h2>
+    <p>The formal definition of this criterion: <a href="https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html">W3C — Understanding Link Purpose (In Context)</a></p>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Annex — EAA accessibility evidence for agencies. These pages are informational and are not legal advice.</p>
+  </div>
+</footer>
+</body>
+</html>

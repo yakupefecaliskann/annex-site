@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yakupefecaliskann.github.io/annex-site/sitemap.xml

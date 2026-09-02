@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixing Resize Text on Wix (WCAG 1.4.4) | Annex</title>
+<meta name="description" content="Where to look and what to change when WCAG 1.4.4 (Resize Text) fails on a store running Wix.">
+<link rel="canonical" href="https://yakupefecaliskann.github.io/annex-site/wix/resize-text/">
+<meta property="og:title" content="Fixing Resize Text on Wix (WCAG 1.4.4) | Annex">
+<meta property="og:description" content="Where to look and what to change when WCAG 1.4.4 (Resize Text) fails on a store running Wix.">
+<meta property="og:url" content="https://yakupefecaliskann.github.io/annex-site/wix/resize-text/">
+<meta property="og:type" content="article">
+<style>:root{--bg:#fbfaf8;--fg:#1a1a1a;--muted:#5a5a5a;--line:#e2ded8;--accent:#7a2e2e;--card:#fff;--warn-bg:#fdf6e3;--warn-line:#d9c89a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28}}
+:root[data-theme="dark"]{--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#fff;padding:.6rem 1rem;z-index:10}
+.skip:focus{left:0}
+.wrap{max-width:52rem;margin:0 auto;padding:0 1.25rem}
+header.site{border-bottom:1px solid var(--line);padding:1rem 0}
+header.site .wrap{display:flex;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.brand{font-weight:700;font-size:1.1rem;color:var(--fg);text-decoration:none;letter-spacing:-.01em}
+nav.site a{color:var(--muted);text-decoration:none;margin-right:1rem;font-size:.9rem}
+nav.site a:hover,nav.site a:focus{color:var(--accent);text-decoration:underline}
+main{padding:2.5rem 0 4rem}
+h1{font-size:1.9rem;line-height:1.2;margin:0 0 .5rem;letter-spacing:-.02em}
+h2{font-size:1.25rem;line-height:1.3;margin:2.25rem 0 .6rem}
+h3{font-size:1.02rem;margin:1.5rem 0 .4rem}
+p{margin:0 0 1rem}
+a{color:var(--accent)}
+.lede{font-size:1.08rem;color:var(--muted);margin-bottom:1.5rem}
+.meta{font-size:.82rem;color:var(--muted);margin:0 0 1.5rem;padding:0;list-style:none;display:flex;gap:.75rem;flex-wrap:wrap}
+.meta li{border:1px solid var(--line);border-radius:999px;padding:.15rem .7rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.25rem;margin:0 0 1rem}
+.card h3{margin-top:0}
+.card p:last-child{margin-bottom:0}
+.why{font-size:.9rem;color:var(--muted)}
+.note{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:10px;padding:1rem 1.25rem;font-size:.92rem;margin:2rem 0}
+.note p:last-child{margin-bottom:0}
+ol.steps{padding-left:1.2rem}
+ol.steps li{margin-bottom:.5rem}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{border-bottom:1px solid var(--line);padding:.85rem 0}
+ul.plain li:last-child{border-bottom:0}
+ul.plain a{font-weight:600;text-decoration:none}
+ul.plain a:hover,ul.plain a:focus{text-decoration:underline}
+ul.plain .sub{display:block;font-size:.88rem;color:var(--muted);margin-top:.15rem}
+code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.08em .35em;font-size:.9em}
+footer.site{border-top:1px solid var(--line);padding:1.5rem 0 2.5rem;font-size:.85rem;color:var(--muted)}
+footer.site a{color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:34rem){h1{font-size:1.55rem}}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/annex-site/">Annex</a>
+    <nav class="site" aria-label="Main navigation">
+      <a href="/annex-site/wcag/">WCAG criteria</a>
+      <a href="/annex-site/#how-it-works">How Annex works</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <h1>Fixing Resize Text on Wix (WCAG 1.4.4)</h1>
+    <p class="lede">Text must be able to scale to 200% without losing content or functionality.</p>
+    <ul class="meta">
+      <li>Wix</li>
+      <li>WCAG 1.4.4</li>
+      <li>Level AA</li>
+    </ul>
+
+    <h2>Why it matters</h2>
+    <p>Disabling zoom in the viewport meta tag is a single line, but it locks low-vision customers out of the store entirely on mobile. The information printed smallest — price, size chart, shipping terms — is exactly the information that needs enlarging.</p>
+
+    <h2>Wix — where to look</h2>
+    <p>The platform manages the viewport itself; restrictions usually arrive through custom code embeds.</p>
+
+    <h2>What to do</h2>
+    <p>Check whether a custom code section is injecting its own viewport tag.</p>
+
+    <div class="note">
+      <h2 id="verification-status">Verification status</h2>
+      <p>The paths and setting names below describe the general structure of Wix and have
+      not yet been confirmed against a live installation. Menu names vary by version, theme and
+      plugins. Steps that have been verified are marked as such on this page.</p>
+    </div>
+
+    <h2>How to verify the fix</h2>
+      <ol class="steps">
+        <li>View source and check the viewport meta tag for user-scalable=no or a maximum-scale below 2.</li>
+        <li>Set desktop browser zoom to 200% and confirm the price, Add to Cart button and navigation are still visible and usable.</li>
+        <li>Try pinch-zooming on mobile.</li>
+      </ol>
+
+    <h2>Other platforms</h2>
+      <ul class="plain">
+        <li><a href="/annex-site/shopify/resize-text/">Fixing Resize Text on Shopify</a></li>
+        <li><a href="/annex-site/woocommerce/resize-text/">Fixing Resize Text on WooCommerce</a></li>
+        <li><a href="/annex-site/webflow/resize-text/">Fixing Resize Text on Webflow</a></li>
+        <li><a href="/annex-site/squarespace/resize-text/">Fixing Resize Text on Squarespace</a></li>
+      </ul>
+
+    <h2>The full criterion</h2>
+    <p>Read <a href="/annex-site/wcag/resize-text/">the full explanation of WCAG 1.4.4 Resize Text</a>,
+    or the <a href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html">formal W3C definition</a>.</p>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Annex — EAA accessibility evidence for agencies. These pages are informational and are not legal advice.</p>
+  </div>
+</footer>
+</body>
+</html>
