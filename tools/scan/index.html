@@ -82,11 +82,13 @@ footer.site a{color:var(--muted)}
     <p class="lede">Paste the source of any page and see which WCAG 2.2 issues can be found in its
     markup. Runs in your browser. Nothing is uploaded, stored or sent anywhere.</p>
 
-    <div class="note">
-        <h2 id="url-mode">Scanning by URL is not enabled yet</h2>
-        <p>Fetching another site from the browser is blocked by cross-origin rules, so URL scanning
-        needs a small server. That is not connected yet. Paste the page source below instead —
-        it runs entirely in your browser and nothing is uploaded.</p>
+    <div class="card">
+        <h2>Scan a URL</h2>
+        <form id="url-form">
+          <label for="url-input">Page address</label>
+          <input type="url" id="url-input" name="url" placeholder="https://example.com/product" required>
+          <button type="submit">Scan this page</button>
+        </form>
       </div>
 
     <div class="card">
@@ -101,7 +103,15 @@ footer.site a{color:var(--muted)}
 
     <div id="results" role="status" aria-live="polite"></div>
 
-    
+    <form class="card" id="capture">
+        <h2>Get the full checklist by email</h2>
+        <p>The scan above covers what can be checked from markup alone. Contrast, keyboard
+        operation and focus visibility need a human. We will send you the manual checklist we use.</p>
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Send me the checklist</button>
+        <p id="capture-status" role="status" aria-live="polite"></p>
+      </form>
 
     <div class="note">
       <h2 id="what-this-checks">What this checks, and what it cannot</h2>
@@ -116,7 +126,7 @@ footer.site a{color:var(--muted)}
     <script type="module">
 import { RULES } from '/annex-site/assets/rules.js';
 
-const SCAN_API = "";
+const SCAN_API = "https://annex-edge.annex-tracker-edge.workers.dev/scan";
 const results = document.getElementById('results');
 
 const esc = (s) => String(s)
@@ -178,15 +188,45 @@ if (urlForm) {
   urlForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const url = document.getElementById('url-input').value;
-    results.innerHTML = '<div class="card"><h3>Fetching…</h3></div>';
+    results.innerHTML = '<div class="card"><h2>Fetching…</h2></div>';
     try {
       const res = await fetch(SCAN_API + '?url=' + encodeURIComponent(url));
-      if (!res.ok) throw new Error('The scanner could not fetch that address.');
-      const data = await res.json();
+      let data = null;
+      try { data = await res.json(); } catch (_) { /* JSON degilse asagida yakalanir */ }
+      // Sunucunun kendi mesajini kullan; o mesajlar bizim yazdigimiz ve
+      // kullaniciya asil olani anlatan mesajlar.
+      if (!res.ok || !data || !data.html) {
+        throw new Error((data && data.error) || 'The scanner could not reach that address.');
+      }
       render(scan(data.html));
     } catch (err) {
-      results.innerHTML = '<div class="card"><h3>Could not scan that address</h3><p>' +
-        esc(err.message) + ' You can paste the page source below instead.</p></div>';
+      results.innerHTML = '<div class="card"><h2>Could not scan that address</h2><p>' +
+        esc(err.message) + '</p><p>You can paste the page source below instead — that runs ' +
+        'in your browser and always works.</p></div>';
+    }
+    results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
+const capture = document.getElementById('capture');
+if (capture) {
+  const status = document.getElementById('capture-status');
+  capture.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    status.textContent = 'Sending…';
+    try {
+      const res = await fetch("https://annex-edge.annex-tracker-edge.workers.dev/subscribe", {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json().catch(() => null);
+      if (!res.ok) throw new Error((data && data.error) || 'That did not go through.');
+      status.textContent = 'Thanks — the checklist is on its way.';
+      capture.querySelector('button').disabled = true;
+    } catch (err) {
+      status.textContent = err.message;
     }
   });
 }
