@@ -46,11 +46,21 @@ ul.plain li:last-child{border-bottom:0}
 ul.plain a{font-weight:600;text-decoration:none}
 ul.plain a:hover,ul.plain a:focus{text-decoration:underline}
 ul.plain .sub{display:block;font-size:.88rem;color:var(--muted);margin-top:.15rem}
+.scroll-x{overflow-x:auto;margin:0 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+caption{text-align:left;color:var(--muted);font-size:.85rem;padding-bottom:.5rem}
+th,td{text-align:left;padding:.5rem .75rem;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:600}
 code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.08em .35em;font-size:.9em}
 footer.site{border-top:1px solid var(--line);padding:1.5rem 0 2.5rem;font-size:.85rem;color:var(--muted)}
 footer.site a{color:var(--muted)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-@media (max-width:34rem){h1{font-size:1.55rem}}</style>
+@media (max-width:34rem){h1{font-size:1.55rem}}
+#paste-form textarea,#url-form input{width:100%;font:inherit;padding:.6rem .7rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);margin:.35rem 0 .75rem}
+#paste-form textarea{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85rem}
+#paste-form button,#url-form button,#capture button{font:inherit;font-weight:600;padding:.55rem 1.1rem;border:0;border-radius:6px;background:var(--accent);color:#fff;cursor:pointer}
+#capture input{width:100%;max-width:22rem;font:inherit;padding:.6rem .7rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);margin:.35rem 0 .75rem}
+#results ul.plain code{display:block;word-break:break-all;margin-bottom:.2rem}</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -59,6 +69,7 @@ footer.site a{color:var(--muted)}
     <a class="brand" href="/annex-site/">Annex</a>
     <nav class="site" aria-label="Main navigation">
       <a href="/annex-site/wcag/">WCAG criteria</a>
+      <a href="/annex-site/tools/scan/">Free scan</a>
       <a href="/annex-site/#how-it-works">How Annex works</a>
     </nav>
   </div>
