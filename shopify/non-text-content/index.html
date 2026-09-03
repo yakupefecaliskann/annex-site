@@ -90,16 +90,18 @@ footer.site a{color:var(--muted)}
     <p>In a catalogue without alt text, a screen reader user cannot tell one product from another — the listing reads as a row of filenames. Alt text is also what renders when an image fails to load, and it is one of the signals search engines use to understand a product image. Fixing this is simultaneously an accessibility fix, a resilience fix and an SEO fix.</p>
 
     <h2>Shopify — where to look</h2>
-    <p>Admin, then the product's Media section, then the alt text field on each image. Also the product card snippet in theme code.</p>
+    <p>Admin, then the product Media section, then the alt text field on each image. In theme code: snippets/card-product.liquid.</p>
 
     <h2>What to do</h2>
     <p>Fill in alt text on product media. In theme code make sure the product card prints the media alt text rather than the filename. Decorative theme images should carry an empty alt attribute, not have the attribute removed.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p>The paths and setting names below describe the general structure of Shopify and have
-      not yet been confirmed against a live installation. Menu names vary by version, theme and
-      plugins. Steps that have been verified are marked as such on this page.</p>
+      <p><strong>Checked against the platform's own source.</strong>
+      Dawn renders alt=&quot;{{ card_product.featured_media.alt | escape }}&quot;, so it prints the media alt text and not the filename. An empty alt here means the field was left blank in Admin.</p>
+      <p>Source: <a href="https://github.com/Shopify/dawn/blob/main/snippets/card-product.liquid">https://github.com/Shopify/dawn/blob/main/snippets/card-product.liquid</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

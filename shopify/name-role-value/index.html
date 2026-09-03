@@ -90,16 +90,18 @@ footer.site a{color:var(--muted)}
     <p>On a store this shows up in the cart, search and filter components. An Add to Cart control built from a div with a click handler cannot be focused with a keyboard and does not announce itself as a button — the customer simply cannot add the product. That is a lost sale, not a degraded experience.</p>
 
     <h2>Shopify — where to look</h2>
-    <p>Theme code: cart drawer, filter and variant picker components.</p>
+    <p>Theme code: snippets/cart-drawer.liquid, sections/header.liquid, filter and variant picker components.</p>
 
     <h2>What to do</h2>
-    <p>Use a real button element for anything clickable. Maintain aria-expanded and aria-controls on the cart drawer trigger. Make ids unique per product in repeating lists.</p>
+    <p>Use a real button element for anything clickable. Prefer the native details/summary disclosure pattern where it fits — the browser then manages the expanded state for you and there is no aria-expanded to keep in sync. Only manage aria-expanded by hand when you build the trigger from a plain button. Make ids unique per product in repeating lists.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p>The paths and setting names below describe the general structure of Shopify and have
-      not yet been confirmed against a live installation. Menu names vary by version, theme and
-      plugins. Steps that have been verified are marked as such on this page.</p>
+      <p><strong>Checked against the platform's own source.</strong>
+      Dawn uses native details/summary for the cart drawer rather than a hand-managed aria-expanded button, which is why its header carries no aria-expanded at all. Copying an aria-expanded pattern onto a details element would be wrong.</p>
+      <p>Source: <a href="https://github.com/Shopify/dawn/blob/main/snippets/cart-drawer.liquid">https://github.com/Shopify/dawn/blob/main/snippets/cart-drawer.liquid</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

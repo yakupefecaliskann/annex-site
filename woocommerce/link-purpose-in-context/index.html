@@ -90,16 +90,18 @@ footer.site a{color:var(--muted)}
     <p>Screen reader users often navigate by pulling up a list of every link on the page. If each product card links out with the word 'Details', that list is the same word twenty times over and the catalogue cannot be browsed. The same fix helps search engines understand what each link points at.</p>
 
     <h2>WooCommerce — where to look</h2>
-    <p>The theme's product loop template; page builder product grid widgets.</p>
+    <p>The theme product loop template; WooCommerce templates/loop/add-to-cart.php.</p>
 
     <h2>What to do</h2>
-    <p>Include the product name in the link text within the loop. WooCommerce adds the product name to Add to Cart buttons as visually hidden text by default — make sure the theme does not strip it.</p>
+    <p>WooCommerce can attach the product name to an Add to Cart link, but only when the theme passes an aria-describedby_text argument: it then renders aria-describedby pointing at a span.screen-reader-text. It is NOT on by default. Check your theme supplies that argument, and include the product name in card link text.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p>The paths and setting names below describe the general structure of WooCommerce and have
-      not yet been confirmed against a live installation. Menu names vary by version, theme and
-      plugins. Steps that have been verified are marked as such on this page.</p>
+      <p><strong>Checked against the platform's own source.</strong>
+      Template guards the whole mechanism behind isset($args[&quot;aria-describedby_text&quot;]).</p>
+      <p>Source: <a href="https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/templates/loop/add-to-cart.php">https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/templates/loop/add-to-cart.php</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

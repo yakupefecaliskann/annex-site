@@ -90,16 +90,18 @@ footer.site a{color:var(--muted)}
     <p>Disabling zoom in the viewport meta tag is a single line, but it locks low-vision customers out of the store entirely on mobile. The information printed smallest — price, size chart, shipping terms — is exactly the information that needs enlarging.</p>
 
     <h2>Shopify — where to look</h2>
-    <p>Theme code, the viewport meta tag in the main layout file.</p>
+    <p>Theme code: the viewport meta tag in layout/theme.liquid.</p>
 
     <h2>What to do</h2>
     <p>Reduce the tag to width=device-width and initial-scale=1; remove the user-scalable and maximum-scale restrictions.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p>The paths and setting names below describe the general structure of Shopify and have
-      not yet been confirmed against a live installation. Menu names vary by version, theme and
-      plugins. Steps that have been verified are marked as such on this page.</p>
+      <p><strong>Checked against the platform's own source.</strong>
+      Dawn ships an unrestricted viewport (width=device-width,initial-scale=1), so a restriction here was added by hand.</p>
+      <p>Source: <a href="https://github.com/Shopify/dawn/blob/main/layout/theme.liquid">https://github.com/Shopify/dawn/blob/main/layout/theme.liquid</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

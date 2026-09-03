@@ -90,16 +90,18 @@ footer.site a{color:var(--muted)}
     <p>The title is the first thing a screen reader announces when a user moves between tabs. If all 200 products in the catalogue carry the title 'Shop', the customer cannot tell which product they are on. It is also the line that appears in search results, so the fix improves click-through at the same time.</p>
 
     <h2>Shopify — where to look</h2>
-    <p>Theme code, the title element in the main layout file; per-product and per-collection SEO fields in Admin.</p>
+    <p>Theme code: the title element in layout/theme.liquid; per-product and per-collection SEO fields in Admin.</p>
 
     <h2>What to do</h2>
     <p>Derive the title from the page object (product name, collection name) and append the store name. Include the page number in paginated listings.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p>The paths and setting names below describe the general structure of Shopify and have
-      not yet been confirmed against a live installation. Menu names vary by version, theme and
-      plugins. Steps that have been verified are marked as such on this page.</p>
+      <p><strong>Checked against the platform's own source.</strong>
+      Dawn builds the title from page_title, so it already varies per page. A repeated title usually means the SEO field was left blank in Admin or the tag was overwritten.</p>
+      <p>Source: <a href="https://github.com/Shopify/dawn/blob/main/layout/theme.liquid">https://github.com/Shopify/dawn/blob/main/layout/theme.liquid</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

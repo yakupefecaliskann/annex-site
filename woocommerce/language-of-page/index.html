@@ -90,16 +90,18 @@ footer.site a{color:var(--muted)}
     <p>A one-line fix, but when it is missing a screen reader pronounces the page with the wrong language's phonetic rules — German product copy read with English pronunciation is close to unintelligible. It bites hardest on multilingual EU storefronts: if the language switcher translates the content but leaves the lang attribute untouched, every translated version is announced wrongly.</p>
 
     <h2>WooCommerce — where to look</h2>
-    <p>Theme header template, the html tag.</p>
+    <p>Theme header template (header.php), the html tag.</p>
 
     <h2>What to do</h2>
-    <p>Use WordPress's language_attributes() output instead of a fixed string. With WPML or Polylang this returns the active language.</p>
+    <p>Use WordPress language_attributes() instead of a fixed string; with WPML or Polylang it returns the active language. The Storefront reference theme does this already.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p>The paths and setting names below describe the general structure of WooCommerce and have
-      not yet been confirmed against a live installation. Menu names vary by version, theme and
-      plugins. Steps that have been verified are marked as such on this page.</p>
+      <p><strong>Checked against the platform's own source.</strong>
+      Storefront ships &lt;html &lt;?php language_attributes(); ?&gt;&gt;.</p>
+      <p>Source: <a href="https://github.com/woocommerce/storefront/blob/trunk/header.php">https://github.com/woocommerce/storefront/blob/trunk/header.php</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

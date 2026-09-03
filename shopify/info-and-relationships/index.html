@@ -90,16 +90,18 @@ footer.site a{color:var(--muted)}
     <p>The expensive version of this failure is in the checkout form. A field whose label is not programmatically associated leaves a screen reader user guessing what to type, and they abandon at the payment step. That is a lost order, at the point in the funnel where the customer was most committed.</p>
 
     <h2>Shopify — where to look</h2>
-    <p>Theme code: contact, account and search forms, and product templates.</p>
+    <p>Theme code: form sections such as sections/contact-form.liquid, plus product templates. Shopify's own checkout is platform-managed and cannot be edited from the theme.</p>
 
     <h2>What to do</h2>
     <p>Ensure label/for and id match on every form field. Use real headings and lists in the rich-text product description. Note that Shopify's own checkout is platform-managed and cannot be edited from the theme.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p>The paths and setting names below describe the general structure of Shopify and have
-      not yet been confirmed against a live installation. Menu names vary by version, theme and
-      plugins. Steps that have been verified are marked as such on this page.</p>
+      <p><strong>Checked against the platform's own source.</strong>
+      Dawn associates labels correctly (label class=&quot;field__label&quot; for=&quot;ContactForm-name&quot;). Broken associations usually come from a custom section or an app-injected form.</p>
+      <p>Source: <a href="https://github.com/Shopify/dawn/blob/main/sections/contact-form.liquid">https://github.com/Shopify/dawn/blob/main/sections/contact-form.liquid</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

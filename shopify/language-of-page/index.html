@@ -90,16 +90,18 @@ footer.site a{color:var(--muted)}
     <p>A one-line fix, but when it is missing a screen reader pronounces the page with the wrong language's phonetic rules — German product copy read with English pronunciation is close to unintelligible. It bites hardest on multilingual EU storefronts: if the language switcher translates the content but leaves the lang attribute untouched, every translated version is announced wrongly.</p>
 
     <h2>Shopify — where to look</h2>
-    <p>Theme code, the html tag at the top of the main layout file.</p>
+    <p>Theme code: the html tag in layout/theme.liquid.</p>
 
     <h2>What to do</h2>
-    <p>Print the request locale's ISO code into the lang attribute rather than hard-coding a language. With Shopify Markets this makes every locale emit the right value automatically.</p>
+    <p>Print the request locale ISO code into the lang attribute rather than hard-coding a language. Shopify's reference theme Dawn does this already, so a missing or wrong lang usually means the tag was edited or the theme is older.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p>The paths and setting names below describe the general structure of Shopify and have
-      not yet been confirmed against a live installation. Menu names vary by version, theme and
-      plugins. Steps that have been verified are marked as such on this page.</p>
+      <p><strong>Checked against the platform's own source.</strong>
+      Dawn ships &lt;html class=&quot;js&quot; lang=&quot;{{ request.locale.iso_code }}&quot;&gt;.</p>
+      <p>Source: <a href="https://github.com/Shopify/dawn/blob/main/layout/theme.liquid">https://github.com/Shopify/dawn/blob/main/layout/theme.liquid</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>
