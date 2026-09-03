@@ -139,6 +139,12 @@ import { RULES } from '/annex-site/assets/rules.js';
 const SCAN_API = "https://annex-edge.annex-tracker-edge.workers.dev/scan";
 const results = document.getElementById('results');
 
+// Isletim sisteminde "hareketi azalt" secen kullaniciya animasyonlu kaydirma
+// dayatilmaz. Sonuc bloguna gitmek gerekli, animasyon degil.
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const showResults = () =>
+  results.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+
 const esc = (s) => String(s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;')
   .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -190,7 +196,7 @@ document.getElementById('paste-form').addEventListener('submit', (e) => {
   const html = document.getElementById('html-input').value;
   if (!html.trim()) return;
   render(scan(html));
-  results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  showResults();
 });
 
 const urlForm = document.getElementById('url-form');
@@ -214,7 +220,7 @@ if (urlForm) {
         esc(err.message) + '</p><p>You can paste the page source below instead — that runs ' +
         'in your browser and always works.</p></div>';
     }
-    results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    showResults();
   });
 }
 
@@ -246,6 +252,7 @@ if (capture) {
 <footer class="site">
   <div class="wrap">
     <p>Annex — EAA accessibility evidence for agencies. These pages are informational and are not legal advice.</p>
+    <p><a href="/annex-site/statement/annex/">Accessibility statement for this site</a></p>
   </div>
 </footer>
 </body>
