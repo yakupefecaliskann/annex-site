@@ -90,17 +90,18 @@ footer.site a{color:var(--muted)}
     <p>Screen reader users often navigate by pulling up a list of every link on the page. If each product card links out with the word 'Details', that list is the same word twenty times over and the catalogue cannot be browsed. The same fix helps search engines understand what each link points at.</p>
 
     <h2>Shopify — where to look</h2>
-    <p>Theme code: the product card snippet and product grid templates; header icon links.</p>
+    <p>Theme code: snippets/card-product.liquid and product grid templates; header icon links.</p>
 
     <h2>What to do</h2>
-    <p>Wrap the image and title in a single link rather than two. Give icon links an aria-label. Where a card button says 'View', include the product name via visually hidden text.</p>
+    <p>Use one link per card rather than separate links on the image and the title. Dawn does this with a single title link carrying a full-unstyled-link class that CSS stretches over the whole card, so the card is one target with one accessible name. Give icon links an aria-label or visually hidden text.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p><strong>Not yet confirmed against a live installation.</strong> The paths and setting names
-      below describe the general structure of Shopify and menu names vary by version, theme
-      and plugins. Where we have checked a step against the platform's own source, this box says so
-      and links to it.</p>
+      <p><strong>Checked against the platform's own source.</strong>
+      Dawn emits a single anchor per card (full-unstyled-link) plus visually hidden text, not two competing links.</p>
+      <p>Source: <a href="https://github.com/Shopify/dawn/blob/main/snippets/card-product.liquid">https://github.com/Shopify/dawn/blob/main/snippets/card-product.liquid</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>
