@@ -11,12 +11,12 @@
 <meta property="og:url" content="https://yakupefecaliskann.github.io/annex-site/woocommerce/page-titled/">
 <meta property="og:type" content="article">
 <meta name="google-site-verification" content="8wYBzZYfRvvsnTygsSvXhD-FLdIXRJCtbu_uygGk_Os">
-<style>:root{--bg:#fbfaf8;--fg:#1a1a1a;--muted:#5a5a5a;--line:#e2ded8;--accent:#7a2e2e;--card:#fff;--warn-bg:#fdf6e3;--warn-line:#d9c89a}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28}}
-:root[data-theme="dark"]{--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28}
+<style>:root{--bg:#fbfaf8;--fg:#1a1a1a;--muted:#5a5a5a;--line:#e2ded8;--accent:#7a2e2e;--card:#ffffff;--warn-bg:#fdf6e3;--warn-line:#d9c89a;--on-accent:#ffffff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28;--on-accent:#16151a}}
+:root[data-theme="dark"]{--bg:#16151a;--fg:#eceaf0;--muted:#a5a2ad;--line:#2f2d36;--accent:#e8a0a0;--card:#1e1d24;--warn-bg:#26221a;--warn-line:#4a3f28;--on-accent:#16151a}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#fff;padding:.6rem 1rem;z-index:10}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:var(--on-accent);padding:.6rem 1rem;z-index:10}
 .skip:focus{left:0}
 .wrap{max-width:52rem;margin:0 auto;padding:0 1.25rem}
 header.site{border-bottom:1px solid var(--line);padding:1rem 0}
@@ -59,7 +59,7 @@ footer.site a{color:var(--muted)}
 @media (max-width:34rem){h1{font-size:1.55rem}}
 #paste-form textarea,#url-form input{width:100%;font:inherit;padding:.6rem .7rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);margin:.35rem 0 .75rem}
 #paste-form textarea{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85rem}
-#paste-form button,#url-form button,#capture button{font:inherit;font-weight:600;padding:.55rem 1.1rem;border:0;border-radius:6px;background:var(--accent);color:#fff;cursor:pointer}
+#paste-form button,#url-form button,#capture button{font:inherit;font-weight:600;padding:.55rem 1.1rem;border:0;border-radius:6px;background:var(--accent);color:var(--on-accent);cursor:pointer}
 #capture input{width:100%;max-width:22rem;font:inherit;padding:.6rem .7rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);margin:.35rem 0 .75rem}
 #results ul.plain code{display:block;word-break:break-all;margin-bottom:.2rem}
 .plan{border-left:3px solid var(--line)}
@@ -67,7 +67,7 @@ footer.site a{color:var(--muted)}
 .plan .tag{font-size:.7rem;font-weight:600;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.1rem .5rem;vertical-align:middle;white-space:nowrap}
 .price{margin:.2rem 0 .4rem;font-size:1.6rem;line-height:1.1}
 .price .sub{font-size:.85rem;color:var(--muted);font-weight:400}
-.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:.6rem 1.1rem;border-radius:8px;font-size:.95rem}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:600;padding:.6rem 1.1rem;border-radius:8px;font-size:.95rem}
 .btn:hover,.btn:focus{text-decoration:underline}
 .btn-quiet{display:inline-block;color:var(--muted);font-size:.88rem}
 .plan p:last-child{margin-bottom:0}</style>
