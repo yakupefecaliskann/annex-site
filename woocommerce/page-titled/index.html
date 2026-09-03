@@ -90,17 +90,18 @@ footer.site a{color:var(--muted)}
     <p>The title is the first thing a screen reader announces when a user moves between tabs. If all 200 products in the catalogue carry the title 'Shop', the customer cannot tell which product they are on. It is also the line that appears in search results, so the fix improves click-through at the same time.</p>
 
     <h2>WooCommerce — where to look</h2>
-    <p>SEO plugin title templates (Yoast, Rank Math); the theme's wp_head() call.</p>
+    <p>SEO plugin title templates (Yoast, Rank Math); the theme must call wp_head().</p>
 
     <h2>What to do</h2>
     <p>Define separate title templates for products and categories. The theme must call wp_head() or the plugin cannot output a title at all.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p><strong>Not yet confirmed against a live installation.</strong> The paths and setting names
-      below describe the general structure of WooCommerce and menu names vary by version, theme
-      and plugins. Where we have checked a step against the platform's own source, this box says so
-      and links to it.</p>
+      <p><strong>Checked by reading the platform’s own source code.</strong>
+      Storefront emits no title tag of its own and calls wp_head(), which is correct — WordPress and the SEO plugin generate the title there. A theme that hard-codes a title or omits wp_head() breaks this, so check both.</p>
+      <p>Source: <a href="https://github.com/woocommerce/storefront/blob/trunk/header.php">https://github.com/woocommerce/storefront/blob/trunk/header.php</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

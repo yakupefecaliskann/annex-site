@@ -90,17 +90,18 @@ footer.site a{color:var(--muted)}
     <p>New in WCAG 2.2, so a site audited before 2023 has almost certainly never been checked against it. On a store it hits the quantity stepper, the colour swatch row, the star rating input, the close control on the cookie banner and the pagination numbers — all of which tend to be drawn small and packed tightly. On mobile, where most storefront traffic now sits, an undersized quantity control means the customer taps 'remove' when they meant 'decrease'. That is a lost basket, not an inconvenience.</p>
 
     <h2>Shopify — where to look</h2>
-    <p>Theme code: quantity input component, variant swatch styles, and any promo bar or popup app.</p>
+    <p>Theme stylesheet: the quantity and swatch rules in assets/base.css; plus any promo bar or popup app.</p>
 
     <h2>What to do</h2>
-    <p>Give the stepper buttons a minimum box of 24 by 24 (44 by 44 is a better mobile target) using padding rather than a fixed icon size, so the icon stays visually small while the hit area grows. Popup apps are a frequent offender and are styled outside the theme — check each one.</p>
+    <p>Grow the hit area with padding rather than enlarging the icon, so the control stays visually small while meeting the minimum. 44 by 44 is a better mobile target than the 24 minimum.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p><strong>Not yet confirmed against a live installation.</strong> The paths and setting names
-      below describe the general structure of Shopify and menu names vary by version, theme
-      and plugins. Where we have checked a step against the platform's own source, this box says so
-      and links to it.</p>
+      <p><strong>Checked by reading the platform’s own source code.</strong>
+      Dawn sets an explicit min-width of 44px only on the announcement bar slider arrows. The quantity stepper buttons carry no min-width or min-height of their own — their size comes from container padding and a 1rem icon — so measure them rather than assuming they pass.</p>
+      <p>Source: <a href="https://github.com/Shopify/dawn/blob/main/assets/base.css">https://github.com/Shopify/dawn/blob/main/assets/base.css</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

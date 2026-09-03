@@ -90,17 +90,18 @@ footer.site a{color:var(--muted)}
     <p>This is the failure that turns a technically operable store into an unusable one. Keyboard support can be perfect, but if the focus ring has been removed the customer is tabbing blind — they cannot tell whether they are on the size selector or the Add to Cart button. The usual cause is a single line of CSS added early in a theme to remove an outline the designer disliked, and it silently affects every control on every page.</p>
 
     <h2>Shopify — where to look</h2>
-    <p>Theme stylesheet — look for a global outline reset, often near the top of the base styles.</p>
+    <p>Theme stylesheet: the focus rules in assets/base.css.</p>
 
     <h2>What to do</h2>
-    <p>Remove the blanket reset and define a :focus-visible style with a clearly contrasting outline and an offset. Using :focus-visible rather than :focus keeps the ring from appearing on mouse clicks, which is usually why it was removed in the first place.</p>
+    <p>Do not leave a blanket outline reset in place. Reset on :focus, then restore the indicator on :focus-visible so the ring appears for keyboard users but not on mouse clicks. Ship a class-based fallback for browsers without :focus-visible support.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p><strong>Not yet confirmed against a live installation.</strong> The paths and setting names
-      below describe the general structure of Shopify and menu names vary by version, theme
-      and plugins. Where we have checked a step against the platform's own source, this box says so
-      and links to it.</p>
+      <p><strong>Checked by reading the platform’s own source code.</strong>
+      Dawn already does this: *:focus resets the outline, *:focus-visible restores it from --focused-base-outline, and a .focused class covers browsers without :focus-visible. Worth checking one thing though — that outline is defined at 50% opacity of the foreground colour, so on a low-contrast colour scheme it can fall short of the 3:1 needed for non-text contrast.</p>
+      <p>Source: <a href="https://github.com/Shopify/dawn/blob/main/assets/base.css">https://github.com/Shopify/dawn/blob/main/assets/base.css</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

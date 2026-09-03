@@ -90,17 +90,18 @@ footer.site a{color:var(--muted)}
     <p>In a catalogue without alt text, a screen reader user cannot tell one product from another — the listing reads as a row of filenames. Alt text is also what renders when an image fails to load, and it is one of the signals search engines use to understand a product image. Fixing this is simultaneously an accessibility fix, a resilience fix and an SEO fix.</p>
 
     <h2>WooCommerce — where to look</h2>
-    <p>WordPress Media Library, the Alternative Text field on each attachment.</p>
+    <p>WordPress Media Library, the Alternative Text field; the rendering happens in single-product/product-image.php.</p>
 
     <h2>What to do</h2>
     <p>Populate the alt text field, and map the alt-text column during bulk imports. Leave alt empty for decorative images.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p><strong>Not yet confirmed against a live installation.</strong> The paths and setting names
-      below describe the general structure of WooCommerce and menu names vary by version, theme
-      and plugins. Where we have checked a step against the platform's own source, this box says so
-      and links to it.</p>
+      <p><strong>Checked by reading the platform’s own source code.</strong>
+      The core template passes attachment alt text through to the rendered image, so an empty alt means the Media Library field was left blank — not a template bug. Bulk imports that skip the alt column are the usual cause.</p>
+      <p>Source: <a href="https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/templates/single-product/product-image.php">https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/templates/single-product/product-image.php</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

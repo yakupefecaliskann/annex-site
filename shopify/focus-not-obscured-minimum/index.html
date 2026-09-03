@@ -90,17 +90,18 @@ footer.site a{color:var(--muted)}
     <p>New in WCAG 2.2, so almost no site audited before 2023 has been checked against it — and almost every modern storefront has the pattern that breaks it. A sticky header plus a sticky Add to Cart bar plus a cookie banner means a keyboard user tabbing down the page repeatedly loses sight of where they are: the browser scrolls the focused element just into view, and the sticky header covers it. The customer is still technically on the control, but has no way to know.</p>
 
     <h2>Shopify — where to look</h2>
-    <p>Theme code: the sticky header component and any sticky Add to Cart section; consent banner and chat apps configured outside the theme.</p>
+    <p>Theme stylesheet and the sticky header section.</p>
 
     <h2>What to do</h2>
-    <p>Add scroll-margin-top to focusable elements equal to at least the sticky header height, so the browser leaves room when scrolling focus into view. Where the header height changes on scroll, set the value from the same variable the header uses. Test consent and chat apps separately — they are not part of the theme.</p>
+    <p>Add scroll-margin-top to focusable elements, at least the height of the sticky header, so the browser leaves room when it scrolls focus into view. Where the header height changes on scroll, drive the value from the same variable the header uses.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p><strong>Not yet confirmed against a live installation.</strong> The paths and setting names
-      below describe the general structure of Shopify and menu names vary by version, theme
-      and plugins. Where we have checked a step against the platform's own source, this box says so
-      and links to it.</p>
+      <p><strong>Checked by reading the platform’s own source code.</strong>
+      Dawn does NOT set scroll-margin or scroll-padding anywhere in base.css while shipping a sticky header option. On a store with the sticky header enabled this criterion is likely to fail out of the box, so treat it as something to add rather than something to check.</p>
+      <p>Source: <a href="https://github.com/Shopify/dawn/blob/main/assets/base.css">https://github.com/Shopify/dawn/blob/main/assets/base.css</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

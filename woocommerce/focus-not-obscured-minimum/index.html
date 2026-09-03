@@ -97,10 +97,11 @@ footer.site a{color:var(--muted)}
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p><strong>Not yet confirmed against a live installation.</strong> The paths and setting names
-      below describe the general structure of WooCommerce and menu names vary by version, theme
-      and plugins. Where we have checked a step against the platform's own source, this box says so
-      and links to it.</p>
+      <p><strong>Checked by reading the platform’s own source code.</strong>
+      Storefront sets no scroll-margin or scroll-padding at all, the same gap Dawn has. If your theme or a plugin adds a sticky header or sticky add-to-cart bar, assume this criterion fails until you add the offset yourself.</p>
+      <p>Source: <a href="https://github.com/woocommerce/storefront/blob/trunk/assets/css/base/_base.scss">https://github.com/woocommerce/storefront/blob/trunk/assets/css/base/_base.scss</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

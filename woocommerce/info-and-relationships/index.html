@@ -90,17 +90,18 @@ footer.site a{color:var(--muted)}
     <p>The expensive version of this failure is in the checkout form. A field whose label is not programmatically associated leaves a screen reader user guessing what to type, and they abandon at the payment step. That is a lost order, at the point in the funnel where the customer was most committed.</p>
 
     <h2>WooCommerce — where to look</h2>
-    <p>Theme and child-theme form templates; page builder blocks.</p>
+    <p>WooCommerce core templates (global/quantity-input.php, single-product/add-to-cart/variable.php, myaccount/form-login.php); your theme and page builder blocks.</p>
 
     <h2>What to do</h2>
-    <p>In the page builder, set the HTML tag of heading blocks by meaning and control the visual size separately. Associate labels on any custom checkout fields.</p>
+    <p>WooCommerce core already associates its labels, so a broken association almost always comes from a theme override, a page builder block or a custom checkout field. In the page builder, set the HTML tag of heading blocks by meaning and control the visual size separately.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p><strong>Not yet confirmed against a live installation.</strong> The paths and setting names
-      below describe the general structure of WooCommerce and menu names vary by version, theme
-      and plugins. Where we have checked a step against the platform's own source, this box says so
-      and links to it.</p>
+      <p><strong>Checked by reading the platform’s own source code.</strong>
+      Core ships label for/id pairs on the quantity input, the variation selects and the account forms, several of them as screen-reader-text so the association exists without a visible label.</p>
+      <p>Source: <a href="https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/templates/global/quantity-input.php">https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/templates/global/quantity-input.php</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>

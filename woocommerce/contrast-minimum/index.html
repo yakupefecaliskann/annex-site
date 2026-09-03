@@ -90,17 +90,18 @@ footer.site a{color:var(--muted)}
     <p>This is the single most common failure on commercial sites, and on a store it lands on the elements that carry money. Sale prices are routinely set in a light grey or a brand accent that fails against white. Placeholder text inside checkout fields fails almost by default. 'Free shipping over €50' banners in thin light type fail. A customer who cannot read the price does not buy, and unlike a broken button this failure is invisible to anyone with normal vision — including the designer who shipped it.</p>
 
     <h2>WooCommerce — where to look</h2>
-    <p>Theme customiser colour settings; page builder global colour palette; WooCommerce sale badge and price styles.</p>
+    <p>Customizer colour settings, which compile into the theme stylesheet; page builder global palette.</p>
 
     <h2>What to do</h2>
-    <p>Fix the colour once in the global palette rather than per block, otherwise the failure reappears on every new page. Pay particular attention to the sale price and the stock status text, which many themes set in a light accent colour.</p>
+    <p>Fix the colour once at the palette or Customizer level rather than per block, otherwise the failure reappears on every new page. Pay particular attention to the sale price and the stock status text.</p>
 
     <div class="note">
       <h2 id="verification-status">Verification status</h2>
-      <p><strong>Not yet confirmed against a live installation.</strong> The paths and setting names
-      below describe the general structure of WooCommerce and menu names vary by version, theme
-      and plugins. Where we have checked a step against the platform's own source, this box says so
-      and links to it.</p>
+      <p><strong>Checked by reading the platform’s own source code.</strong>
+      Storefront resolves colours through SCSS variables compiled from Customizer settings rather than runtime CSS custom properties, so a colour change requires the theme stylesheet to regenerate — a cached old stylesheet can make a fix look like it did not apply.</p>
+      <p>Source: <a href="https://github.com/woocommerce/storefront/blob/trunk/assets/css/base/_base.scss">https://github.com/woocommerce/storefront/blob/trunk/assets/css/base/_base.scss</a></p>
+      <p>Reference themes change. If your store runs a different or older theme, confirm the file
+      before editing it.</p>
     </div>
 
     <h2>How to verify the fix</h2>
