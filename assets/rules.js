@@ -38,11 +38,40 @@ function cssEscape(s) {
   return String(s).replace(/["\\]/g, '\\$&');
 }
 
+// aria-hidden="true" veya hidden taşıyan bir alt ağaç erişilebilirlik
+// ağacından tamamen çıkar. İçindeki metni isim saymak gerçek bir ihlali
+// kaçırmak olur — ikon butonlarda en yaygın desen tam olarak budur:
+//   <button><svg aria-hidden="true"><title>Sepet</title></svg></button>
+// Bu butonun ismi YOKTUR.
+function accessibleText(node) {
+  if (!node) return '';
+
+  if (node.nodeType === 1) {
+    if (attr(node, 'aria-hidden') === 'true') return '';
+    if (attr(node, 'hidden') !== null) return '';
+  }
+
+  const kids = node.childNodes;
+  if (!kids || kids.length === 0) {
+    if (node.nodeType === 3) {
+      const raw = node.textContent !== undefined ? node.textContent : node.rawText;
+      return raw || '';
+    }
+    return '';
+  }
+
+  let out = '';
+  for (const k of kids) out += accessibleText(k);
+  return out;
+}
+
+const accName = (node) => accessibleText(node).replace(/\s+/g, ' ').trim();
+
 // Bir öğenin erişilebilir isminin var olup olmadığı. Tam ACCNAME algoritması
 // değil — statik olarak güvenle söylenebilecek kadarı. Şüphede kalırsa
 // "ismi var" kabul eder, çünkü yanlış pozitif daha pahalı.
 function hasAccessibleName(el, doc) {
-  if (text(el)) return true;
+  if (accName(el)) return true;
   if (attr(el, 'aria-label')?.trim()) return true;
 
   const labelledby = attr(el, 'aria-labelledby');
@@ -56,11 +85,13 @@ function hasAccessibleName(el, doc) {
 
   if (attr(el, 'title')?.trim()) return true;
 
+  // İçteki görsel ve svg de erişilebilirlik ağacında duruyorsa isim sağlar.
   for (const img of el.querySelectorAll('img')) {
+    if (attr(img, 'aria-hidden') === 'true') continue;
     if (attr(img, 'alt')?.trim()) return true;
   }
   for (const svg of el.querySelectorAll('svg')) {
-    if (text(svg)) return true; // <title> içeriği
+    if (accName(svg)) return true; // <title> içeriği
   }
   return false;
 }
