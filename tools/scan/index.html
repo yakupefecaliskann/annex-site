@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Free accessibility scan — check any page against WCAG 2.2 | Annex</title>
-<meta name="description" content="Paste a page source and see which WCAG 2.2 issues can be found in its markup. Runs entirely in your browser; nothing is uploaded.">
+<meta name="description" content="Paste a page source, or give an address, and see which WCAG 2.2 issues can be found in its markup. The checks run in your browser; pasting sends us nothing, scanning by address sends us the address.">
 <link rel="canonical" href="https://yakupefecaliskann.github.io/annex-site/tools/scan/">
 <meta property="og:title" content="Free accessibility scan — check any page against WCAG 2.2 | Annex">
-<meta property="og:description" content="Paste a page source and see which WCAG 2.2 issues can be found in its markup. Runs entirely in your browser; nothing is uploaded.">
+<meta property="og:description" content="Paste a page source, or give an address, and see which WCAG 2.2 issues can be found in its markup. The checks run in your browser; pasting sends us nothing, scanning by address sends us the address.">
 <meta property="og:url" content="https://yakupefecaliskann.github.io/annex-site/tools/scan/">
 <meta property="og:type" content="article">
 <meta name="google-site-verification" content="8wYBzZYfRvvsnTygsSvXhD-FLdIXRJCtbu_uygGk_Os">
@@ -89,8 +89,9 @@ footer.site a{color:var(--muted)}
 <main id="main">
   <div class="wrap">
     <h1>Free accessibility scan</h1>
-    <p class="lede">Paste the source of any page and see which WCAG 2.2 issues can be found in its
-    markup. Runs in your browser. Nothing is uploaded, stored or sent anywhere.</p>
+    <p class="lede">Paste the source of any page, or give us an address, and see which WCAG 2.2 issues can be
+    found in its markup. The checks themselves always run in your browser. Pasting sends us
+    nothing at all; scanning by address sends us the address, and each mode says so where you use it.</p>
 
     <div class="card">
         <h2>Scan a URL</h2>
@@ -99,11 +100,18 @@ footer.site a{color:var(--muted)}
           <input type="url" id="url-input" name="url" placeholder="https://example.com/product" required>
           <button type="submit">Scan this page</button>
         </form>
+        <p class="why"><strong>What happens to the address.</strong> Your browser is not allowed to
+        fetch another site directly, so this mode sends the address you type to our server. That
+        server fetches the page and passes its HTML back to your browser, and the checks then run
+        here on your own machine. We do not store the address or the page. Our host keeps ordinary
+        request logs that we do not control. If you would rather send us nothing at all, paste the
+        page source below instead &mdash; that mode never leaves your browser.</p>
       </div>
 
     <div class="card">
       <h2>Paste page source</h2>
-      <p class="why">In your browser: right-click the page, choose View Page Source, select all, copy.</p>
+      <p class="why">In your browser: right-click the page, choose View Page Source, select all, copy.
+      Nothing you paste here leaves your browser.</p>
       <form id="paste-form">
         <label for="html-input">Page source (HTML)</label>
         <textarea id="html-input" name="html" rows="10" required></textarea>
